@@ -1,0 +1,2 @@
+class Vertical < ApplicationRecord
+end
