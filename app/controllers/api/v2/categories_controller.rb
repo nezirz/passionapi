@@ -4,9 +4,10 @@ class Api::V2::CategoriesController < Api::BaseController
 
   # GET /categories
   def index
-    @categories = Category.first
+    @categories = Category.select(:id,:name)
 
-    render json: @categories
+    render json: @categories.as_json( :include => {:courses => { :only =>[:id,:name] }})
+
   end
 
   # GET /categories/1

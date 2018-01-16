@@ -4,10 +4,22 @@ class Api::V2::VerticalsController < Api::BaseController
 
   # GET /verticals
   def index
-    @verticals = Vertical.first
+    @verticals = Vertical.select(:id,:name)
 
-    render json: @verticals
+    render json: @verticals.as_json( :include => { :categories => {
+                                        :include =>  {:courses => {:only =>[:name] } },
+                                                      :only => [:name]  }
+                                      }
+                                   )
+
   end
+
+  #   konata.to_json(:include => { :posts => {
+  #                                  :include => { :comments => {
+  #                                                :only => :body } },
+  #                                  :only => :title } })
+
+
 
   # GET /verticals/1
   def show
