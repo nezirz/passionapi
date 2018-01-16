@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Coding Challenge “Passionate Navigation”, Ruby On Rails Api for handling backend operations.
 
-Things you may want to cover:
+Dependencies:
+* Ruby version  
+  2.4.2
+* Rails version  
+  5.2.0.beta2
 
-* Ruby version
+* Gems 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  SQLite,
+  Devise,
+  Doorkeeper

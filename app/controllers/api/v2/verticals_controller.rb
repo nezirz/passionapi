@@ -7,18 +7,13 @@ class Api::V2::VerticalsController < Api::BaseController
     @verticals = Vertical.select(:id,:name)
 
     render json: @verticals.as_json( :include => { :categories => {
-                                        :include =>  {:courses => {:only =>[:name] } },
+                                        :include =>  {:courses => {:only =>[:name,:author] } },
                                                       :only => [:name]  }
                                       }
                                    )
-
+    #probably should use here joins because couldn't exclude categories which are not 'active',
+    # or maybe sent state so on client side it could be hidden
   end
-
-  #   konata.to_json(:include => { :posts => {
-  #                                  :include => { :comments => {
-  #                                                :only => :body } },
-  #                                  :only => :title } })
-
 
 
   # GET /verticals/1

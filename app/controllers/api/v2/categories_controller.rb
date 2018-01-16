@@ -4,10 +4,11 @@ class Api::V2::CategoriesController < Api::BaseController
 
   # GET /categories
   def index
-    @categories = Category.select(:id,:name)
+    @categories = Category.select(:id, :name).where(state: 'active')
 
-    render json: @categories.as_json( :include => {:courses => { :only =>[:id,:name] }})
-
+    render json: @categories.as_json( :include => {:courses => { :only =>[:id, :name, :author]}})
+    #probably should use here joins because couldn't exclude courses which are not 'active',
+    # or maybe sent state so on client side it could be hidden
   end
 
   # GET /categories/1
