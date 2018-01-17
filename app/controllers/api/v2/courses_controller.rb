@@ -4,7 +4,7 @@ class Api::V2::CoursesController < Api::BaseController
 
   # GET /courses
   def index
-    @courses = Course.select(:id, :name).where(state: 'active')
+    @courses = Course.active.select(:id, :name)
 
     render json: @courses
   end

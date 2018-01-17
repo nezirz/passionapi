@@ -11,8 +11,7 @@ class Api::V2::VerticalsController < Api::BaseController
                                                       :only => [:name]  }
                                       }
                                    )
-    #probably should use here joins because couldn't exclude categories which are not 'active',
-    # or maybe sent state so on client side it could be hidden
+
   end
 
 
